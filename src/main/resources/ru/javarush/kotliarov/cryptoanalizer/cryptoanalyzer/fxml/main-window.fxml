@@ -1,40 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" prefHeight="681.0" prefWidth="890.0" style="-fx-background-color: white;" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.controllers.MainController">
    <children>
-      <BorderPane prefHeight="421.0" prefWidth="890.0">
-         <left>
-            <VBox id="VBoxMain" prefHeight="668.0" prefWidth="240.0" stylesheets="@../css/styles.css" BorderPane.alignment="CENTER">
-               <children>
-                  <ToggleButton mnemonicParsing="false" prefHeight="100.0" prefWidth="240.0" text="ToggleButton">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </ToggleButton>
-                  <ToggleButton mnemonicParsing="false" prefHeight="100.0" prefWidth="240.0" text="ToggleButton">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </ToggleButton>
-                  <ToggleButton mnemonicParsing="false" prefHeight="100.0" prefWidth="240.0" text="ToggleButton">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </ToggleButton>
-               </children>
-            </VBox>
-         </left>
-         <top>
-            <HBox id="HBoxMain" prefHeight="100.0" prefWidth="200.0" stylesheets="@../css/styles.css" BorderPane.alignment="CENTER" />
-         </top>
-      </BorderPane>
+      <Pane prefHeight="81.0" prefWidth="30.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
+      <Pane layoutY="591.0" prefHeight="90.0" prefWidth="37.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1266.0" AnchorPane.topAnchor="591.0" />
+      <Pane fx:id="context" layoutX="207.0" layoutY="41.0" prefHeight="624.0" prefWidth="1057.0" />
+      <VBox alignment="TOP_CENTER" prefHeight="681.0" prefWidth="185.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0); -fx-background-radius: 30;">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/caesar-cipher.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label prefHeight="40.0" prefWidth="170.0" style="-fx-font-weight: bold;" text="Caesar Cipher 3000" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnEncryption" contentDisplay="TOP" onAction="#encryptionOnAction" prefHeight="87.0" prefWidth="184.0" text="Encryption" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/encrypted-data.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnKeyDecryption" contentDisplay="TOP" onAction="#keyDecryptionOnAction" prefHeight="88.0" prefWidth="184.0" text="Decryption via key" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/decryption.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnBruteForceDecryption" contentDisplay="TOP" onAction="#bruteForceOnAction" prefHeight="90.0" prefWidth="185.0" text="Brute Force" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../icons/brute-force.png" />
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAnalysisDecryption" contentDisplay="TOP" onAction="#analysisOnAction" prefHeight="94.0" prefWidth="184.0" text="Statistical text analysis" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/research.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAbout" contentDisplay="TOP" onAction="#AboutOnAction" prefHeight="88.0" prefWidth="184.0" text="About" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/info.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Button id="exitBtn" fx:id="exitButton" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="1264.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="35.0" prefWidth="35.0" stylesheets="@../css/styles.css" text="X">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
+   <effect>
+      <DropShadow height="24.11" radius="25.55" spread="0.07" width="80.09" />
+   </effect>
 </AnchorPane>

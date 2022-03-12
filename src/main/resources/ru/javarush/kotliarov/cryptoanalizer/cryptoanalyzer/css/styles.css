@@ -1,12 +1,42 @@
 #HBoxMain {
--fx-background-color: #4E4088;
+    -fx-background-color: #4E4088;
 }
 
 #VBoxMain {
--fx-background-color: #6F5CC2;
+    -fx-background-color: #6F5CC2;
 }
 
-.toggle-button {
+#AnchorPaneMain {
+    -fx-background-color: white;
+}
+
+#exitBtn {
+    -fx-text-fill: Red;
+
+}
+
+#exitBtn:hover {
+    -fx-background-color: transparent;
+    -fx-text-fill: #D79895;
+}
+
+#contentButton {
+    -fx-text-fill: black;
+    -fx-base: transparent;
+    -fx-background: transparent;
+    -fx-focus-color: transparent;
+    -fx-border-color: black;
+    -fx-effect: null;
+}
+
+#contentButton:hover {
+    -fx-background-color: #C3C3C3;
+}
+
+#contentButton:pressed {
+}
+
+.button {
     -fx-text-fill: white;
     -fx-base: transparent;
     -fx-background: transparent;
@@ -15,11 +45,14 @@
     -fx-effect: null;
 }
 
-.toggle-button:selected {
-    -fx-text-fill: white;
-    -fx-base: transparent;
-    -fx-background: transparent;
-    -fx-focus-color: transparent;
-    -fx-border-color: transparent;
-    -fx-effect: null;
+.button:hover{
+    -fx-background-color: #6065C4;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em;
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.button:pressed{
+    -fx-background-color: #6065C4;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em;
+    -fx-text-fill: -fx-text-base-color;
 }

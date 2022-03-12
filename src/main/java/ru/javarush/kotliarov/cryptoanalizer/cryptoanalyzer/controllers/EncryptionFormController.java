@@ -18,9 +18,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.exceptions.AppException;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class EncryptionFormController implements Initializable {
     @FXML
@@ -68,8 +73,20 @@ public class EncryptionFormController implements Initializable {
     @FXML
     void importButtonOnAction(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open File");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        File file = fileChooser.showOpenDialog(new Stage());
 
+        try {
+            Scanner scanner = new Scanner(file);
+
+            while (scanner.hasNext()) {
+                textArea.appendText(scanner.nextLine() + '\n');
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            throw new AppException("File not found: " + file.getName());
+        }
     }
 
     @FXML

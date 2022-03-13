@@ -59,7 +59,7 @@ public class MainController implements Initializable {
         try {
             setUi("encryptionForm");
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new AppException(e.getCause());
         }
     }
 

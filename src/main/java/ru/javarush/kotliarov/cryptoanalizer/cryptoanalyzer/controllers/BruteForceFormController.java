@@ -8,29 +8,16 @@ package ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.controllers;
  * Created on 12.03.2022, 17:16.
  */
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
+import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.operations.Operations;
 
-public class BruteForceFormController {
-    @FXML
-    private Button copyTextButton;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    @FXML
-    private Button decryptButton;
-
-    @FXML
-    private Button importButton;
-
-    @FXML
-    private ProgressIndicator progressIndicator;
-
-    @FXML
-    private Button saveFileButton;
-
+public class BruteForceFormController implements Initializable {
     @FXML
     private Label statusMessage;
 
@@ -38,22 +25,28 @@ public class BruteForceFormController {
     private TextArea textArea;
 
     @FXML
-    void copyTextButtonOnAction(ActionEvent event) {
-
+    void copyTextButtonOnAction() {
+        Operations.copyText(textArea, statusMessage);
     }
 
     @FXML
-    void decryptButtonOnAction(ActionEvent event) {
-
+    void decryptButtonOnAction() {
+        Operations.bruteForceDecryption(textArea, statusMessage);
     }
 
     @FXML
-    void importButtonOnAction(ActionEvent event) {
-
+    void importButtonOnAction() {
+        Operations.importFile(textArea, statusMessage);
     }
 
     @FXML
-    void saveFileButtonOnAction(ActionEvent event) {
+    void saveFileButtonOnAction() {
+        Operations.saveFile(textArea, statusMessage);
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.statusMessage.setText("");
+        textArea.setWrapText(true);
     }
 }

@@ -8,32 +8,20 @@ package ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.controllers;
  * Created on 12.03.2022, 17:16.
  */
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.global.Constants;
+import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.operations.Operations;
 
-public class KeyDecryptionFormController {
-    @FXML
-    private Button copyTextButton;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class KeyDecryptionFormController implements Initializable {
     @FXML
-    private Button decryptButton;
-
-    @FXML
-    private Button importButton;
-
-    @FXML
-    private TextField keyField;
-
-    @FXML
-    private ProgressIndicator progressIndicator;
-
-    @FXML
-    private Button saveFileButton;
+    private Spinner<Integer> keySpinner;
 
     @FXML
     private Label statusMessage;
@@ -42,22 +30,29 @@ public class KeyDecryptionFormController {
     private TextArea textArea;
 
     @FXML
-    void copyTextButtonOnAction(ActionEvent event) {
-
+    void copyTextButtonOnAction() {
+        Operations.copyText(textArea, statusMessage);
     }
 
     @FXML
-    void decryptButtonOnAction(ActionEvent event) {
-
+    void decryptButtonOnAction() {
+        Operations.encrypt(textArea, statusMessage, Constants.LIST_ALPHABET.size() - keySpinner.getValue());
     }
 
     @FXML
-    void importButtonOnAction(ActionEvent event) {
-
+    void importButtonOnAction() {
+        Operations.importFile(textArea, statusMessage);
     }
 
     @FXML
-    void saveFileButtonOnAction(ActionEvent event) {
+    void saveFileButtonOnAction() {
+        Operations.saveFile(textArea, statusMessage);
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.statusMessage.setText("");
+        textArea.setWrapText(true);
+        keySpinner.setValueFactory(Constants.VALUE_FACTORY);
     }
 }

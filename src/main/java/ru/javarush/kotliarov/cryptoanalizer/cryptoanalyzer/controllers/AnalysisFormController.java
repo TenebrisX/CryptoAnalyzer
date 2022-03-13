@@ -10,27 +10,10 @@ package ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
 
 public class AnalysisFormController {
-    @FXML
-    private Button copyTextButton;
-
-    @FXML
-    private Button decryptButton;
-
-    @FXML
-    private Button importButton;
-
-    @FXML
-    private ProgressIndicator progressIndicator;
-
-    @FXML
-    private Button saveFileButton;
-
     @FXML
     private Label statusMessage;
 
@@ -38,22 +21,22 @@ public class AnalysisFormController {
     private TextArea textArea;
 
     @FXML
-    void copyTextButtonOnAction(ActionEvent event) {
+    void copyTextButtonOnAction() {
 
     }
 
     @FXML
-    void decryptButtonOnAction(ActionEvent event) {
+    void decryptButtonOnAction() {
 
     }
 
     @FXML
-    void importButtonOnAction(ActionEvent event) {
+    void importButtonOnAction() {
 
     }
 
     @FXML
-    void saveFileButtonOnAction(ActionEvent event) {
+    void saveFileButtonOnAction() {
 
     }
 }

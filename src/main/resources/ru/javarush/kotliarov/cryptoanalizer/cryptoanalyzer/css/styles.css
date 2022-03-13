@@ -36,6 +36,22 @@
 #contentButton:pressed {
 }
 
+#actionButton {
+    -fx-text-fill: black;
+    -fx-base: transparent;
+    -fx-background: transparent;
+    -fx-focus-color: transparent;
+    -fx-border-color: black;
+    -fx-effect: null;
+}
+
+#actionButton:hover {
+    -fx-background-color: #64B50F;
+}
+
+#actionButton:pressed {
+}
+
 .button {
     -fx-text-fill: white;
     -fx-base: transparent;

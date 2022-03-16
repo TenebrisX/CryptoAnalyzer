@@ -8,10 +8,12 @@ package ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.controllers;
  * Created on 11.03.2022, 13:23.
  */
 
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.exceptions.AppException;
@@ -24,17 +26,6 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
     public Pane context;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        encryptionOnAction();
-    }
-
-    private void setUi(String location) throws IOException {
-        URL url = new File("src/main/resources/ru/javarush/kotliarov/cryptoanalizer/cryptoanalyzer/fxml/" +
-                location + ".fxml").toURI().toURL();
-        context.getChildren().add(FXMLLoader.load(url));
-    }
 
     @FXML
     void analysisOnAction() {
@@ -72,7 +63,8 @@ public class MainController implements Initializable {
         }
     }
 
-    public void AboutOnAction(ActionEvent actionEvent) {
+    @FXML
+    public void AboutOnAction() {
         try {
             setUi("aboutForm");
         } catch (IOException e) {
@@ -84,5 +76,16 @@ public class MainController implements Initializable {
     void exitApp() {
         Stage stage = (Stage) context.getScene().getWindow();
         stage.close();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        encryptionOnAction();
+    }
+
+    private void setUi(String location) throws IOException {
+        URL url = new File("src/main/resources/ru/javarush/kotliarov/cryptoanalizer/cryptoanalyzer/fxml/" +
+                location + ".fxml").toURI().toURL();
+        context.getChildren().add(FXMLLoader.load(url));
     }
 }

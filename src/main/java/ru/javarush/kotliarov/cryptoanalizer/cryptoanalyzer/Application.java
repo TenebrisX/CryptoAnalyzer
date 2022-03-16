@@ -26,7 +26,7 @@ public class Application extends javafx.application.Application {
 
         stage.initStyle(StageStyle.UNDECORATED);
 
-        //drag window
+        //drag window magic
         root.setOnMousePressed(pressEvent -> {
             root.setOnMouseDragged(dragEvent -> {
                 stage.setX(dragEvent.getScreenX() - pressEvent.getSceneX());

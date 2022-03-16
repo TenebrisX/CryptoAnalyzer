@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.global.Constants;
-import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.operations.Operations;
+import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.logic.Logic;
 
 import java.net.URL;
 import java.util.*;
@@ -30,22 +30,22 @@ public class EncryptionFormController implements Initializable {
 
     @FXML
     void copyTextButtonOnAction() {
-        Operations.copyText(textArea, statusMessage);
+        Logic.copyText(textArea, statusMessage);
     }
 
     @FXML
     void encryptButtonOnAction() {
-        Operations.encrypt(textArea, statusMessage, keySpinner.getValue());
+        Logic.encrypt(textArea, statusMessage, keySpinner.getValue());
     }
 
     @FXML
     void importButtonOnAction() {
-        Operations.importFile(textArea, statusMessage);
+        Logic.importFileAndPrint(textArea, statusMessage);
     }
 
     @FXML
     void saveFileButtonOnAction() {
-        Operations.saveFile(textArea, statusMessage);
+        Logic.saveFile(textArea, statusMessage);
     }
 
     @Override

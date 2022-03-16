@@ -1,4 +1,4 @@
-package ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.operations;
+package ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.logic;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -22,16 +22,14 @@ import java.util.Scanner;
  * Created on 13.03.2022, 15:14.
  */
 
-public class Operations {
+public class Logic {
     private static final FileChooser fileChooser = new FileChooser();
     private static final FileChooser.ExtensionFilter extensionFilter =
             new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
 
-    public static void importFile(TextArea textArea, Label statusMessage) {
+    public static void importFileAndPrint(TextArea textArea, Label statusMessage) {
         statusMessage.setText("");
-        fileChooser.setTitle("Open File");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT Files (*.txt)", "*.txt"));
-        File file = fileChooser.showOpenDialog(new Stage());
+        File file = importFile();
 
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNext()) {
@@ -41,10 +39,19 @@ public class Operations {
         } catch (FileNotFoundException e) {
             statusMessage.setText("File not found!");
             throw new AppException("File not found: " + file.getName());
-        } catch (NullPointerException e) {
-            statusMessage.setText("Invalid file type or file not found!");
-            throw new AppException("Invalid file type or file not found", e.getCause());
         }
+    }
+
+    protected static File importFile() {
+        fileChooser.setTitle("Open File");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        File file;
+        try {
+            file = fileChooser.showOpenDialog(new Stage());
+        } catch (NullPointerException e) {
+            throw new AppException(e.getMessage());
+        }
+        return file;
     }
 
     public static void saveFile(TextArea textArea, Label statusMessage) {
@@ -92,7 +99,7 @@ public class Operations {
     public static void bruteForceDecryption(TextArea textArea, Label statusMessage) {
         if (!textArea.getText().isEmpty()) {
             int key = 0;
-            for (int i = 0; i < Constants.LIST_ALPHABET.size(); i++) {
+            for (int i = 0; i < Constants.RU_FREQUENCIES.size(); i++) {
                 if (getMostCommonChar(encLogic(textArea.getText(), i).toString()) == ' ') {
                     key = i;
                     break;
@@ -122,15 +129,13 @@ public class Operations {
     }
 
     private static StringBuilder encLogic(String text, int key) {
-        int offset = key % Constants.LIST_ALPHABET.size();
+        int offset = key % Constants.RU_FREQUENCIES.size();
         StringBuilder result = new StringBuilder();
         for (char c : text.toCharArray()) {
-            if (Constants.LIST_ALPHABET.contains(c)) {
-                int originalPosition = Constants.LIST_ALPHABET.indexOf(c);
-                int newPosition = (originalPosition + offset) % Constants.LIST_ALPHABET.size();
-                result.append(Constants.LIST_ALPHABET.get(newPosition));
-            } else {
-                result.append(c);
+            if (Constants.RU_FREQUENCIES.contains(c)) {
+                int originalPosition = Constants.RU_FREQUENCIES.indexOf(c);
+                int newPosition = (originalPosition + offset) % Constants.RU_FREQUENCIES.size();
+                result.append(Constants.RU_FREQUENCIES.get(newPosition));
             }
         }
         return result;

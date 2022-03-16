@@ -7,56 +7,38 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="624.0" prefWidth="1057.0" style="-fx-background-color: white;"
-            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.controllers.BruteForceFormController">
-   <Button id="contentButton" layoutX="14.0" layoutY="106.0" mnemonicParsing="false" onAction="#importButtonOnAction"
-           prefHeight="53.0" prefWidth="150.0" stylesheets="@../css/styles.css" text="Import Text File">
+<AnchorPane prefHeight="624.0" prefWidth="1057.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.controllers.BruteForceFormController">
+   <Button id="contentButton" layoutX="14.0" layoutY="106.0" mnemonicParsing="false" onAction="#importButtonOnAction" prefHeight="53.0" prefWidth="150.0" stylesheets="@../css/styles.css" text="Import Text File">
       <font>
-         <Font size="14.0"/>
+         <Font size="14.0" />
       </font>
    </Button>
-   <Pane prefHeight="78.0" prefWidth="1057.0"
-         style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);">
-      <Label layoutX="14.0" layoutY="12.0" prefHeight="53.0" prefWidth="496.0" text="Decryption via brute force"
-             textFill="WHITE">
+   <Pane prefHeight="78.0" prefWidth="1057.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);">
+      <Label layoutX="14.0" layoutY="12.0" prefHeight="53.0" prefWidth="496.0" text="Decryption via brute force" textFill="WHITE">
          <font>
-            <Font size="36.0"/>
+            <Font size="36.0" />
          </font>
       </Label>
    </Pane>
-   <TextArea fx:id="textArea" layoutX="13.0" layoutY="184.0" prefHeight="375.0" prefWidth="1029.0"
-             promptText="You can write something here or paste your text, or use import and choose a .txt file"
-             scrollTop="5.0"/>
-   <Button id="contentButton" layoutX="892.0" layoutY="586.0" mnemonicParsing="false" onAction="#saveFileButtonOnAction"
-           prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/styles.css" text="Save File">
+   <TextArea fx:id="textArea" layoutX="13.0" layoutY="184.0" prefHeight="375.0" prefWidth="1029.0" promptText="You can write something here or paste your text, or use import and choose a .txt file" scrollTop="5.0" />
+   <Button id="contentButton" layoutX="892.0" layoutY="586.0" mnemonicParsing="false" onAction="#saveFileButtonOnAction" prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/styles.css" text="Save File">
       <font>
-         <Font size="14.0"/>
+         <Font size="14.0" />
       </font>
    </Button>
-   <Button id="contentButton" layoutX="724.0" layoutY="586.0" mnemonicParsing="false" onAction="#copyTextButtonOnAction"
-           prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/styles.css" text="Copy Text">
+   <Button id="contentButton" layoutX="724.0" layoutY="586.0" mnemonicParsing="false" onAction="#copyTextButtonOnAction" prefHeight="35.0" prefWidth="150.0" stylesheets="@../css/styles.css" text="Copy Text">
       <font>
-         <Font size="14.0"/>
+         <Font size="14.0" />
       </font>
    </Button>
-   <Button id="actionButton" graphicTextGap="10.0" layoutX="892.0" layoutY="106.0" mnemonicParsing="false"
-           onAction="#decryptButtonOnAction" prefHeight="53.0" prefWidth="150.0" stylesheets="@../css/styles.css"
-           text="DECRYPTION">
+   <Button id="actionButton" graphicTextGap="10.0" layoutX="892.0" layoutY="106.0" mnemonicParsing="false" onAction="#decryptButtonOnAction" prefHeight="53.0" prefWidth="150.0" stylesheets="@../css/styles.css" text="DECRYPTION">
       <font>
-         <Font size="14.0"/>
+         <Font size="14.0" />
       </font>
    </Button>
-   <Label fx:id="statusMessage" layoutX="23.0" layoutY="586.0" prefHeight="17.0" prefWidth="649.0" text="Status"
-          textFill="RED">
+   <Label fx:id="statusMessage" layoutX="23.0" layoutY="586.0" prefHeight="17.0" prefWidth="649.0" text="Status" textFill="RED">
       <font>
-         <Font size="14.0"/>
-      </font>
-   </Label>
-   <Label layoutX="195.0" layoutY="96.0"
-          text="Brute Force работает только с текстом, в котором знак пробела встречается чаще, чем все остальные!">
-      <font>
-         <Font size="14.0"/>
+         <Font size="14.0" />
       </font>
    </Label>
 </AnchorPane>

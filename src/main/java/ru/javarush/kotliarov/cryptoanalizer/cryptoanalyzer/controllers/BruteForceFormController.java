@@ -12,7 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.operations.Operations;
+import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.logic.Logic;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,22 +26,22 @@ public class BruteForceFormController implements Initializable {
 
     @FXML
     void copyTextButtonOnAction() {
-        Operations.copyText(textArea, statusMessage);
+        Logic.copyText(textArea, statusMessage);
     }
 
     @FXML
     void decryptButtonOnAction() {
-        Operations.bruteForceDecryption(textArea, statusMessage);
+        Logic.bruteForceDecryption(textArea, statusMessage);
     }
 
     @FXML
     void importButtonOnAction() {
-        Operations.importFile(textArea, statusMessage);
+        Logic.importFileAndPrint(textArea, statusMessage);
     }
 
     @FXML
     void saveFileButtonOnAction() {
-        Operations.saveFile(textArea, statusMessage);
+        Logic.saveFile(textArea, statusMessage);
     }
 
     @Override

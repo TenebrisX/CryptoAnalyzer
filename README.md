@@ -5,7 +5,7 @@
 
 **16.03.2022 update**
  - Added Statistic Analysis. **CAN handle BIG txt files**. RU language only. ENG language incoming.
- - Cesar regular Encrypt, Decrypt via key and brute force **CANNOT handle big txt file.**
+ - Cesar regular Encrypt, Decrypt via key and brute force **CANNOT handle big txt file.** JAVA FX TextArea appending problem.
 
  - New Alphabet:
    RU: {'а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й' ,'к', 'л', 'м', 'н', 'о', 'п', 

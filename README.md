@@ -5,7 +5,7 @@
 
 **16.03.2022 update**
  - Added Statistic Analysis. **CAN handle BIG txt files**. RU language only. ENG language incoming.
- - Cesar regular Encrypt, Decrypt via key and brute force **CANNOT handle big txt file.
+ - Cesar regular Encrypt, Decrypt via key and brute force **CANNOT handle big txt file.**
 
  - New Alphabet:
    RU: {'а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й' ,'к', 'л', 'м', 'н', 'о', 'п', 
@@ -14,7 +14,7 @@
    'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', '.', ',', '«', '»',
    '"', '\'', ':', '!', '?', ' '};
 
- - Brute Force working only with valid **russian** (english incoming) text where the **"space" character is more common than every other character.
+ - Brute Force working only with valid **russian** (english incoming) text where the **"space" character is more common than every other character.**
  
 #TODO
 

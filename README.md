@@ -4,8 +4,8 @@
 ***CryptoAnalyzer***
 
 **16.03.2022 update**
- - Added Statistic Analysis. **CAN handle BIG txt files**. RU language only. ENG language incoming.
- - Cesar regular Encrypt, Decrypt via key and brute force **CANNOT handle big txt file.** JAVA FX TextArea appending problem.
+ - Added statistical analysis. **CAN handle BIG txt files**. RU text only.
+ - Cesar regular Encrypt, decrypt via key and brute force working with RU text only. **CANNOT handle big txt files** cuz of JAVA FX TextArea appending problem.
 
  - New Alphabet:
    RU: {'а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', 'й' ,'к', 'л', 'м', 'н', 'о', 'п', 
@@ -14,11 +14,11 @@
    'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', '.', ',', '«', '»',
    '"', '\'', ':', '!', '?', ' '};
 
- - Brute Force working only with valid **russian** (english incoming) text where the **"space" character is more common than every other character.**
+ - Brute Force working with valid **russian** (english incoming) text where's the **"space" character is more common than every other character.**
  
 #TODO
 
- - Handle Big files with Encrypt, Decrypt via key, Brute Force.
+ - Handle big files with encrypt, eecrypt via key, brute force.
  - Implement manual character swapping.
  - Analysis file save;
- - Handle English language.
+ - Handle English text.

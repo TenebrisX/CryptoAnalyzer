@@ -18,7 +18,7 @@
  
 #TODO
 
- - Handle big files with encrypt, eecrypt via key, brute force.
+ - Handle big files with encrypt, decrypt via key, brute force.
  - Implement manual character swapping.
  - Analysis file save;
  - Handle English text.

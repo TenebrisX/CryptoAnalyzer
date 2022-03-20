@@ -66,6 +66,7 @@ public class BruteForceFormController implements Initializable {
     void importButtonOnAction() {
         textFileManager.saveToResources(statusMessage, textFileManager.importFile(), Path.of(Constants.ENCRYPTED_FILE_PATH).toFile());
         srcTextArea.clear();
+        bruteForcer.appendToTextArea(srcTextArea, Constants.ENCRYPTED_FILE_PATH);
     }
 
     @FXML

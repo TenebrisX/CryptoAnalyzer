@@ -6,9 +6,7 @@ import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.exceptions.AppExcepti
 import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.global.Constants;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,6 +17,7 @@ import java.util.Scanner;
  */
 
 public class Encrypter implements Action {
+
     private int key = 0;
     private final String destPath;
 
@@ -75,15 +74,16 @@ public class Encrypter implements Action {
     @Override
     public void appendToTextArea(TextArea textArea, String path) {
         textArea.clear();
-        try (Scanner scanner = new Scanner(Path.of(path))) {
-            for (int i = 0; i < 50; i++) {
-                if (scanner.hasNextLine()) {
-                    textArea.appendText(scanner.nextLine() + '\n');
-                }
+        StringBuilder stringBuilder = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            while (reader.ready()) {
+                stringBuilder.append(reader.readLine()).append('\n');
             }
         } catch (IOException e) {
             throw new AppException("IOException at Encrypter.appendToTextArea()", e.getCause());
         }
+
+        textArea.setText(stringBuilder.toString());
     }
 
     private void performEncryption(String srcPath, String destPath, ArrayList<Character> alphabet) {

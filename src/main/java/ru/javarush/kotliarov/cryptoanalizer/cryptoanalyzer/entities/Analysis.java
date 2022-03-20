@@ -81,7 +81,7 @@ public class Analysis extends Encrypter {
             throw new AppException("IOException at Analysis.decryptViaAnalysis()", e.getCause());
         }
 
-        statusLabel.setText("Decryption Complete!");
+        statusLabel.setText("Analysis Complete!");
         statusLabel.setTextFill(Color.GREEN);
     }
 

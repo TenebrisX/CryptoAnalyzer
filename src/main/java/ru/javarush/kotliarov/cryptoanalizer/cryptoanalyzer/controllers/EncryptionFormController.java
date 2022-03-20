@@ -65,6 +65,7 @@ public class EncryptionFormController implements Initializable {
     void importButtonOnAction() {
         textFileManager.saveToResources(statusMessage, textFileManager.importFile(), Path.of(Constants.IMPORTED_FILE_PATH).toFile());
         srcTextArea.clear();
+        encrypter.appendToTextArea(srcTextArea, Constants.IMPORTED_FILE_PATH);
     }
 
     @FXML

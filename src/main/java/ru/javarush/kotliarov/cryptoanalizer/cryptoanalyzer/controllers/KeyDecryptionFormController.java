@@ -65,12 +65,15 @@ public class KeyDecryptionFormController implements Initializable {
         decryptTimeLabel.setText(Constants.DECIMAL_FORMAT.format(((double) stopTime - startTime) / 1_000_000_000) + " sec, " +
                 "character count: " + Path.of(Constants.DECRYPTED_FILE_PATH).toFile().length());
         decryptTimeLabel.setTextFill(Color.GREEN);
+        statusMessage.setText("Decryption complete!");
+        statusMessage.setTextFill(Color.GREEN);
     }
 
     @FXML
     void importButtonOnAction() {
         textFileManager.saveToResources(statusMessage, textFileManager.importFile(), Path.of(Constants.ENCRYPTED_FILE_PATH).toFile());
         srcTextArea.clear();
+        decrypter.appendToTextArea(srcTextArea,Constants.ENCRYPTED_FILE_PATH);
     }
 
     @FXML

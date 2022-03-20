@@ -49,7 +49,7 @@ public class TextFileManager implements FileManager {
         Path src = Path.of(source.toURI());
         Path dest = Path.of(destination.toURI());
             Files.copy(src, dest, StandardCopyOption.REPLACE_EXISTING);
-            status.setText("Import complete! If you imported a file, don't type anything in the text area above!");
+            status.setText("Import complete!");
             status.setTextFill(Color.GREEN);
         } catch (IOException e) {
             status.setText("Failed to import the file!");
@@ -84,7 +84,7 @@ public class TextFileManager implements FileManager {
         try {
             Files.copy(src,dest, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            throw new AppException("Exception at TextFileManager.copyFiles()", e.getCause());
+            throw new AppException("IOException at TextFileManager.copyFiles()", e.getCause());
         }
     }
 }

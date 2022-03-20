@@ -77,5 +77,4 @@ public class Constants {
             "cryptoanalizer/cryptoanalyzer/txt/completeAnalysis.txt";
 
     public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.####");
-
 }

@@ -9,17 +9,21 @@ package ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.controllers;
  */
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.logic.AnalysisLogic;
-import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.logic.Logic;
+import javafx.scene.paint.Color;
+import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.entities.Analysis;
+import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.entities.TextFileManager;
+import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.global.Constants;
 
 import java.net.URL;
+import java.nio.file.Path;
 import java.util.ResourceBundle;
 
 public class AnalysisFormController implements Initializable {
+    TextFileManager textFileManager = new TextFileManager();
+    Analysis analysis = new Analysis(textFileManager);
 
     @FXML
     private TextArea analysisTextArea;
@@ -45,36 +49,38 @@ public class AnalysisFormController implements Initializable {
     @FXML
     private ChoiceBox<String> langChoice;
 
-
     @FXML
-    void copyTextButtonOnAction(ActionEvent event) {
-        Logic.copyText(sampleTextArea, statusMessage);
-    }
-
-    @FXML
-    void decryptButtonOnAction(ActionEvent event) {
-        AnalysisLogic.decryptViaAnalysis(sampleTextArea, statusMessage, decryptionTimeLabel);
+    void decryptButtonOnAction() {
+        long startTime = System.nanoTime();
+        analysis.decryptViaAnalysis(sampleTextArea, statusMessage);
+        long stopTime = System.nanoTime();
+        decryptionTimeLabel.setText(Constants.DECIMAL_FORMAT.format(((double) stopTime - startTime) / 1_000_000_000) + " sec. " +
+                "character count: " + Path.of(Constants.ANALYSIS_DECRYPTED_FILE_PATH).toFile().length());
+        decryptionTimeLabel.setTextFill(Color.GREEN);
     }
 
     @FXML
     void importAnalysisFileOnAction() {
-        AnalysisLogic.importAndAnalyze(analysisTextArea, sampleTextArea, analysisTimeLabel, statusMessage, langChoice);
+        long time = analysis.importAndAnalyze(analysisTextArea,sampleTextArea,statusMessage, langChoice.getValue());
+        analysisTimeLabel.setText(Constants.DECIMAL_FORMAT.format(((double) time) / 1_000_000_000) + " sec.");
+        analysisTimeLabel.setTextFill(Color.GREEN);
     }
 
     @FXML
-    void saveFileButtonOnAction(ActionEvent event) {
-
+    void saveFileButtonOnAction() {
+        textFileManager.saveFile(statusMessage, Constants.ANALYSIS_DECRYPTED_FILE_PATH);
     }
 
 
     @FXML
-    void swapOnAction(ActionEvent event) {
-        AnalysisLogic.manualSwap();
+    void swapOnAction() {
+        analysis.manualCharacterSwap(charSwapFrom.getText(), charSwapTo.getText(), statusMessage, sampleTextArea);
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        statusMessage.setText("");
+        statusMessage.setText("Choose the language first!");
         analysisTimeLabel.setText("0");
         decryptionTimeLabel.setText("0");
         analysisTextArea.setWrapText(true);

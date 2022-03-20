@@ -8,12 +8,9 @@ package ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.controllers;
  * Created on 11.03.2022, 13:23.
  */
 
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.exceptions.AppException;

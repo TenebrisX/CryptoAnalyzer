@@ -2,7 +2,7 @@ package ru.javarush.kotliarov.cryptoanalizer.cryptoanalyzer.global;
 
 import javafx.scene.control.SpinnerValueFactory;
 
-import java.io.File;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -67,5 +67,15 @@ public class Constants {
             "cryptoanalizer/cryptoanalyzer/txt/encrypted.txt";
     public static final String DECRYPTED_FILE_PATH = "src/main/resources/ru/javarush/kotliarov/" +
             "cryptoanalizer/cryptoanalyzer/txt/decrypted.txt";
+    public static final String IMPORTED_FILE_PATH = "src/main/resources/ru/javarush/kotliarov/" +
+            "cryptoanalizer/cryptoanalyzer/txt/imported.txt";
+    public static final String ANALYSIS_IMPORTED_FILE_PATH = "src/main/resources/ru/javarush/kotliarov/" +
+            "cryptoanalizer/cryptoanalyzer/txt/importedAnalysis.txt";
+    public static final String ANALYSIS_DECRYPTED_FILE_PATH = "src/main/resources/ru/javarush/kotliarov/" +
+            "cryptoanalizer/cryptoanalyzer/txt/decryptedAnalysis.txt";
+    public static final String ANALYSIS_COMPLETE_FILE_PATH = "src/main/resources/ru/javarush/kotliarov/" +
+            "cryptoanalizer/cryptoanalyzer/txt/completeAnalysis.txt";
+
+    public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.####");
 
 }

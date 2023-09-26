@@ -1,4 +1,4 @@
-# Boris Kotliarov
+# Bar Boris Kotlyarov
 
 **Javarush University module 1 project:**
 ***CryptoAnalyzer***
